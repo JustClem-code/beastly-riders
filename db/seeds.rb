@@ -20,7 +20,7 @@ speed = "#{(10..250).to_a.sample} km/h"
 image = Faker::LoremFlickr.image
 
 30.times do
-  Beast.new(name: Faker::Name.name_with_middle, description: Faker::TvShows::GameOfThrones.quote, price_per_day: price, image: image , category: category, speed: speed )
+  Beast.new(name: Faker::Name.name_with_middle, description: Faker::TvShows::GameOfThrones.quote, price_per_day: price, image: image, category: category, speed: speed)
 end
 
 puts "===========Création Fini================="
