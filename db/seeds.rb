@@ -8,6 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.delete_all
+
+user1 = User.create!(email: "coucou@coucou.coucou", password: "123456")
+user2 = User.create!(email: "az@az.az", password: "123456")
+
 puts "===========Suppresion des beasts========="
 
 Beast.delete_all
@@ -20,7 +25,8 @@ speed = "#{(10..250).to_a.sample} km/h"
 image = Faker::LoremFlickr.image
 
 30.times do
-  Beast.create!(name: Faker::Name.name_with_middle, description: Faker::TvShows::GameOfThrones.quote, price_per_day: price, image: image, category: category, speed: speed)
+  user = [user1, user2].sample
+  Beast.create!(name: Faker::Name.name_with_middle, description: Faker::TvShows::GameOfThrones.quote, price_per_day: price, image: image, category: category, speed: speed, owner: user)
 end
 
 puts "===========#{Beast.count} beasts crées ==========="
