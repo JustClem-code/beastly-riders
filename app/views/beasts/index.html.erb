@@ -14,3 +14,10 @@
     </div>
   <%end%>
 </div>
+
+
+<%= current_user.email %>
+<%= @user_beast.each do |beast| %>
+  <%= beast.name %>
+  <%= beast.description %>
+<% end %>

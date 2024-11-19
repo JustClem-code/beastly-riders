@@ -9,10 +9,10 @@
 #   end
 # puts "===========Suppresion des bookings========="
 # Booking.delete_all
-puts "===========Suppresion des users========="
-User.delete_all
 puts "===========Suppresion des beasts========="
 Beast.delete_all
+puts "===========Suppresion des users========="
+User.delete_all
 puts "===========Créations des users========="
 # User.create!(email: "user_lambda@gmail.com", password: "lambda")
 user1 = User.create!(email: "coucou@coucou.coucou", password: "123456")
@@ -21,7 +21,7 @@ user3 = User.create!(email: "po@po.po", password: "123456")
 puts "===========Création des beasts==========="
 
 price = "#{(150..1999).to_a.sample}€"
-category = ["Aquatique", "Volante", "Terrestre", "Sous-terraine"].sample
+category = ["💧 Aquatique 💧", "🪽 Volante 🪽", "🦄 Terrestre 🦄", "🕳️ Sous-terraine 🕳️"].sample
 speed = "#{(10..250).to_a.sample} km/h"
 image = Faker::LoremFlickr.image
 

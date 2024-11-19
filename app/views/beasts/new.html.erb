@@ -1,0 +1,13 @@
+<div class="container">
+  <% current_user.email if user_signed_in? %>
+  <h1>NEW</h1>
+  <%= simple_form_for @beast do |f| %>
+    <%= f.input :name%>
+    <%= f.input :description, as: :text%>
+    <%= f.input :price_per_day, as: :float%>
+    <%= f.input :image, as: :file%>
+    <%= f.input :category, collection: Beast::CATEGORY, default: Beast::CATEGORY%>
+    <%= f.input :speed, as: :float%>
+    <%= f.submit "New Beast", class: "btn btn-primary" %>
+  <% end %>
+</div>
