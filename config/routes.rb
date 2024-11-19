@@ -13,4 +13,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :beasts do
+    resources :bookings, only:[:new, :create]
+  end
+
+  get "/dashboard", to: "users#dashboard"
+
+  namespace :owner do
+    resources :beasts, only:[:new, :create, :show]
+    resources :bookings, only:[] do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
+  end
 end
