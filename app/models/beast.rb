@@ -1,5 +1,6 @@
 class Beast < ApplicationRecord
   has_many :users, through: :bookings, dependent: :destroy
+  has_many_attached :photos
 
   CATEGORY = ["Aquatique", "Volante", "Terrestre", "Sous-terraine"].sample
 
