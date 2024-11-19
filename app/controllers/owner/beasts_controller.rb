@@ -6,7 +6,7 @@ class Owner::BeastsController < ApplicationController
   def create
     @beast = Beast.new(beast_params)
     if @beast.save
-      redirect_to owner_beast(@beast.id)
+      redirect_to owner_beast(@beast)
     else
       render :new, status: :unprocessable_entity
     end
