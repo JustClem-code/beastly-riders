@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard"
 
   namespace :owner do
+    get "/dashboard", to: "beasts#dashboard"
     resources :bookings, only:[:index] do
       member do
         patch :accept
