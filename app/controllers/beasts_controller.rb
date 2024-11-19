@@ -1,2 +1,4 @@
 class BeastsController < ApplicationController
+
+
 end
