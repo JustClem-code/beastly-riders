@@ -6,7 +6,7 @@ class Owner::BeastsController < ApplicationController
   def create
     @beast = Beast.new(beast_params)
     if @beast.save
-      redirect_to dashboard_path
+      redirect_to owner_beast(@beast.id)
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,6 +16,6 @@ class Owner::BeastsController < ApplicationController
   private
 
   def beast_params
-    params.require(:beast).permit(:name, :description, :price_per_day, :owner_id, :image, :category, :speed)
+    params.require(:beast).permit(:name, :description, :price_per_day, :image, :category, :speed)
   end
 end
