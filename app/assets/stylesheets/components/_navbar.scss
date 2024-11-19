@@ -1,12 +1,35 @@
-.navbar-lewagon {
+.navbar-beast {
   justify-content: space-between;
   background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#logo {
+  color: #47126B;
+  vertical-align: middle;
+  font-size: large;
+  font-weight: bold;
+}
+
+.purple-btn {
+  background-color: #6D23B6 ;
+  color: white;
+  
+  &:hover {
+    color: white;
+    background-color: #EA698B;
+  }
 }
