@@ -8,12 +8,10 @@
             <%= beast.name%>
           </h5>
           <p class="card-text"><%= beast.description%></p>
+          <%= link_to "Supprimer", beast_path(beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %></a>
           <%# <%= link_to "voir", beast_path, class: "btn btn-primary"%>
         </div>
       </div>
     </div>
   <%end%>
 </div>
-
-
-
