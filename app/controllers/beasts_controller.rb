@@ -1,4 +1,6 @@
 class BeastsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @beasts = Beast.all
     @user_beast = Beast.where(owner: current_user)
