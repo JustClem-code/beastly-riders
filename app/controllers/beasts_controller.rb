@@ -22,6 +22,12 @@ class BeastsController < ApplicationController
     @beast = Beast.find(params[:id])
   end
 
+  def destroy
+    @beast = Beast.find(params[:id])
+    @beast.delete
+    redirect_to beasts_path, status: :see_other
+  end
+
   private
 
   def beast_params

@@ -14,13 +14,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :beasts, only:[:new, :create, :show, :index] do
+  resources :beasts, only:[:new, :create, :show, :index, :destroy] do
     resources :bookings, only:[:new, :create]
   end
 
   get "/dashboard", to: "users#dashboard"
 
   namespace :owner do
+    get "/dashboard", to: "beasts#dashboard"
     resources :bookings, only:[:index] do
       member do
         patch :accept
