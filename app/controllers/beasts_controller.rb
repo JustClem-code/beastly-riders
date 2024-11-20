@@ -24,6 +24,19 @@ class BeastsController < ApplicationController
     @beast = Beast.find(params[:id])
   end
 
+  def edit
+    @beast = Beast.find(params[:id])
+  end
+
+  def update
+    @beast = Beast.find(params[:id])
+    if @beast.update(beast_params)
+      redirect_to beast_path(@beast)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @beast = Beast.find(params[:id])
     @beast.delete
