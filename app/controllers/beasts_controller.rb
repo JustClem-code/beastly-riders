@@ -3,7 +3,6 @@ class BeastsController < ApplicationController
 
   def index
     @beasts = Beast.all
-    @user_beast = Beast.where(owner: current_user)
   end
 
   def new
