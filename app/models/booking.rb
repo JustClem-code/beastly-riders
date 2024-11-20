@@ -5,4 +5,15 @@ class Booking < ApplicationRecord
   validates :beast_id, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
+  # validates :date_end_date_start_date
+
+  # private
+
+  # def date_end_date_start_date
+  #   return if end_date.blank? || start_date.blank?
+
+  #   if end_date < start_date
+  #     errors.add(:end_date, "must be after the start date")
+  #   end
+  # end
 end

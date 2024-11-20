@@ -20,12 +20,12 @@ user2 = User.create!(email: "az@az.az", password: "123456")
 user3 = User.create!(email: "po@po.po", password: "123456")
 puts "===========Création des beasts==========="
 
-price = "#{(150..1999).to_a.sample}€"
-category = ["💧 Aquatique 💧", "🪽 Volante 🪽", "🦄 Terrestre 🦄", "🕳️ Sous-terraine 🕳️"].sample
-speed = "#{(10..250).to_a.sample} km/h"
-image = Faker::LoremFlickr.image
-
 30.times do
+  price = "#{(150..1999).to_a.sample}€"
+  category = ["💧 Aquatique 💧", "🪽 Volante 🪽", "🦄 Terrestre 🦄", "🕳️ Sous-terraine 🕳️"].sample
+  speed = "#{(10..250).to_a.sample} km/h"
+  image = Faker::LoremFlickr.image
+
   user = [user1, user2, user3].sample
   Beast.create!(name: Faker::Name.name_with_middle, description: Faker::TvShows::GameOfThrones.quote, price_per_day: price, image: image, category: category, speed: speed, owner: user)
 end
