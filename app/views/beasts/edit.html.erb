@@ -1,6 +1,6 @@
 <div class="container">
   <% current_user.email if user_signed_in? %>
-  <h1><%= "Modifier l'annonce de <%= @beast.name %>" %></h1>
+  <h1><%= "Modifier mon annonce" %></h1>
   <%= simple_form_for @beast do |f| %>
     <%= f.input :name%>
     <%= f.input :description, as: :text%>
