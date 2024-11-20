@@ -2,7 +2,7 @@
 <div class="row">
   <%@beasts.each do |beast|%>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <%= link_to beast_path(beast) do%>
+      <%= link_to beast_path(beast), class: "text-decoration-none"  do%>
         <div class="card m-1" style="height: 600px;">
           <%unless beast.photos.empty?%>
             <% beast.photos.each do |image| %>
@@ -16,7 +16,10 @@
               <%= beast.name%>
             </h5>
             <p class="card-text"><%= beast.description%></p>
-            <% if current_user.present?%>
+
+          </div>
+          <div class="card-footer">
+          <% if current_user.present?%>
               <%if beast.owner_id == current_user.id%>
                 <%= link_to "Supprimer", beast_path(beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %>
               <%end%>
