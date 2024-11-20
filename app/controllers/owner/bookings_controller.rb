@@ -1,9 +1,9 @@
 class Owner::BookingsController < ApplicationController
   def index
-    # @bookings = Booking.where(owner: current_user)
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
-
-
+  def show
+    
+  end
 end
