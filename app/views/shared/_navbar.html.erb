@@ -1,25 +1,25 @@
-
 <nav class="navbar navbar-light bg-light navbar-beast">
   <%# Image avec le logo pour revenir à la home %>
   <div class= "d-flex">
     <%= link_to root_path, class:"d-flex align-items-baseline m-2" do %>
-    <div>
-      <%= image_tag "logo.png" %>
-    </div>
-    <div>
-      <h5 class="logo m-2 ml-2">Beastly Riders</h5>
-    </div>
+      <div>
+        <%= image_tag "logo.png" %>
+      </div>
+      <div>
+        <h5 class="logo m-2 ml-2">Beastly Riders</h5>
+      </div>
     <% end %>
   </div>
-
   <%# Bouton d'ajout d'une créature %>
   <%# Si authentifié envoi vers Owner/beasts/new %>
   <div class="d-flex mr-4">
     <%= link_to "Proposer la location de ma monture", new_beast_path, class: "btn purple-btn p-2 m-3" %>
-
     <%# Si pas authentifié, bouton Sign up %>
-    <%= link_to "Signup", new_user_registration_path, class: "nav-link active m-3 p-2"%>
+    <%if user_signed_in?%>
+      <%= link_to "Dashboard", dashboard_path, class: "nav-link active m-3 p-2"%>
+    <%else%>
+      <%= link_to "Signup", new_user_registration_path, class: "nav-link active m-3 p-2"%>
+    <%end%>
     <%# Si authentifié, bouton vers le profil faisant apparaitre le nom et l'avatar %>
   </div>
-
 </nav>

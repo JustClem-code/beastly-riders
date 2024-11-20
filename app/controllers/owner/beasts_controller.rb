@@ -1,16 +1,9 @@
 class Owner::BeastsController < ApplicationController
-
   def index
-    @bookings = Booking.all
+    @user_beasts = Beast.where(owner: current_user)
   end
 
   def show
     @booking = Booking.find(params[:id])
   end
-
-  def dashboard
-    @beast = Beast.all
-    @user = current_user
-  end
-
 end
