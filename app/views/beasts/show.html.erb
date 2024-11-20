@@ -28,9 +28,7 @@
               data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr ?"},
               class: "btn btn-danger" %>
         <% else %>
-          <%= link_to "Réserver cette créature !", beasts_path(@beast),
-              data: {turbo_method: :post, turbo_confirm: "Vous confirmez votre réservation ?"},
-              class: "btn btn-success" %>
+          <%= link_to "Réserver cette créature !", new_beast_booking_path(@beast), class: "btn btn-success" %>
         <% end %>
       </div>
     </div>
