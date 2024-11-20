@@ -12,5 +12,6 @@
   <%# <a class="btn btn-primary" href="/beasts/delete" role="button">Supprimer mon annonce</a> %>
   <%= link_to "Modifier mon annonce", edit_beast_path(@beast) %>
   <%= link_to "Supprimer", beast_path(@beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %></a>
+  <%= link_to "Reserver !", new_beast_booking_path(@beast), class:"btn btn-primary" %>
   </div>
 </div>
