@@ -3,7 +3,6 @@ class BeastsController < ApplicationController
 
   def index
     @beasts = Beast.all
-    @user_beast = Beast.where(owner: current_user)
   end
 
   def new
@@ -22,6 +21,7 @@ class BeastsController < ApplicationController
 
   def show
     @beast = Beast.find(params[:id])
+    @owner = @beast.owner == current_user
   end
 
   def destroy

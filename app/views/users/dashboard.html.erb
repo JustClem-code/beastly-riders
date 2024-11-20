@@ -1,3 +1,9 @@
 <h1>DASHBOARD</h1>
+<h2>
+  <%= current_user.email%>
+</h2>
+<%# TODO: Changer le path %>
+<%= link_to "Mes créatures", owner_beasts_path, class:"btn btn-primary"%>
+<%# TODO: Changer le path %>
 <%= link_to "Mes Réservations", beasts_path, class:"btn btn-primary" %>
 <%= link_to "Mon profil", beasts_path, class:"btn btn-primary"%>
