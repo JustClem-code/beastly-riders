@@ -2,14 +2,24 @@
   <div class="row"> <!-- Utilisation d'une rangée Bootstrap -->
     <div class="col-md-6"> <!-- Colonne pour les images (maintenant à gauche) -->
       <div class="image-gallery">
-        <% @beast.photos.each do |image| %>
-          <%= cl_image_tag image.key, class: "card-img-top" %>
+        <%unless @beast.photos.empty?%>
+          <% @beast.photos.each do |image| %>
+            <%= cl_image_tag image.key, class: "img-fluid rounded" %>
+          <%end%>
+        <%else%>
+          <%= image_tag @beast.image, class: "img-fluid rounded ", alt: "image de la créature" %>
         <%end%>
         <div class="row thumbnail-gallery">
           <% 3.times do %>
-            <div class="col-4">
-              <%= image_tag @beast.photos[0], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
-            </div>
+            <%unless @beast.photos.empty?%>
+              <div class="col-4">
+                <%= image_tag @beast.photos[0], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+            <%else%>
+              <div class="col-4">
+                <%= image_tag @beast.image, class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+            <%end%>
           <% end %>
         </div>
       </div>
