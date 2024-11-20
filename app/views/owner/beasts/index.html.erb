@@ -16,7 +16,7 @@
               <%= beast.name%>
             </h5>
             <p class="card-text"><%= beast.description%></p>
-            <% if current_user.id != nil%>
+            <% if current_user.present?%>
               <%if beast.owner_id == current_user.id%>
                 <%= link_to "Supprimer", beast_path(beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %>
               <%end%>
