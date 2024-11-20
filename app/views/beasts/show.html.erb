@@ -1,16 +1,29 @@
 <div class="container">
+  <div class="position relative"
   <h1><%= @beast.name %></h1>
-   <%# <img src="img-fluid" src=<%= @beast.image%> alt="image de la créature"> %>
-  <h3><%= @beast.category %></h3>
-  <h5><%= @beast.price_per_day %></h5>
-  <h5><%= @beast.speed %></h5>
-  <p><%= @beast.description %></p>
-  <img class="card-thumbnail" src=<%= @beast.image%> alt="carte de la créature">
+    <h3><%= @beast.category %></h3>
+    <h5><%= @beast.price_per_day %> €</h5>
+    <h5><%= @beast.speed %> km/h</h5>
+    <p><%= @beast.description %></p>
+    </div>
+
   <div class="container">
+  <img class="rounded img-thumbnail", width= "610px", height="610px", src=<%= @beast.image%> alt="carte de la créature">
   <br>
-  <a class="btn btn-primary" href="/beasts/edit" role="button"></a>
-  <%# <a class="btn btn-primary" href="/beasts/delete" role="button">Supprimer mon annonce</a> %>
-  <%= link_to "Modifier mon annonce", edit_beast_path(@beast) %>
-  <%= link_to "Supprimer", beast_path(@beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %></a>
+  <br>
+  <img class="rounded img-thumbnail", width= "200px", height="200px", src=<%= @beast.image%> alt="carte de la créature">
+  <img class="rounded img-thumbnail", width= "200px", height="200px", src=<%= @beast.image%> alt="carte de la créature">
+  <img class="rounded img-thumbnail", width= "200px", height="200px", src=<%= @beast.image%> alt="carte de la créature">
+  <br>
   </div>
+
+    <div class="container">
+    <br>
+    <%if @owner%>
+    <%= link_to "Modifier mon annonce", edit_beast_path(@beast) , class:"btn btn-primary button"%>
+    <%= link_to "Supprimer mon annonce", beast_path(@beast), data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr ?"}, class:"btn btn-primary button" %>
+    <%else %>
+    <%= link_to "Réserver cette créature !", beasts_path(@beast) ,data: {turbo_method: :delete, turbo_confirm: "Vous confirmez votre réservation ?"}, class:"btn btn-primary button"%>
+    <%end%>
+    </div>
 </div>
