@@ -4,6 +4,6 @@ class Owner::BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  
+
 
 end
