@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   validates :date_start, presence: true
   validates :date_end, presence: true
   # Le statut peut être : "created", "validated", "payed", "canceled"
-  validates :status, inclusion: { in: %w[created validated payed canceled] }
+  validates :status, inclusion: { in: %w[created validated modified payed canceled] }
 
   # validates :date_end_date_start_date
 
