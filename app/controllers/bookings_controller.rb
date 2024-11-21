@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
     # Tente de sauvegarder et gère les résultats
     if @booking.save
-      redirect_to beast_path(@beast), notice: "Booking was successfully created."
+      redirect_to beast_path(@beast), notice: "Votre reservation à bien été prise en compte"
     else
       render :new, status: :unprocessable_entity
     end

@@ -23,16 +23,24 @@
         <p>Reservation annulée</p>
         <% end %>
       </div>
-      <%# si le status est créé ou modifié, on peut accepter ou decline %>
+      <%# si le status est créé ou modifié, on peut accepter %>
       <div>
         <% if booking.status == "created" || booking.status == "modified" %>
         <%= link_to "Accepter", accept_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
         <% end %>
       </div>
+      <%# si le status est créé ou modifié, on peut refuser %>
       <div>
         <% if booking.status == "created" || booking.status == "modified" %>
         <%= link_to "Refuser", decline_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
         <% end %>
+      </div>
+      <%# si le status n'est pas cancel ou payed, le owner peut annuler %>
+      <div>
+        <% unless booking.status == "canceled" %>
+        <%= link_to "Annuler la reservation", cancel_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+        <% end %>
+        <%# || booking.status == "payed" %>
       </div>
     </li>
   </ol>
