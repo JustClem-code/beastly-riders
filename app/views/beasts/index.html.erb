@@ -1,4 +1,5 @@
 <%# TODO: Créer une partials de card %>
+<div class="card d-flex flex-column" style="height: 100%;">
 <div class="row">
   <%@beasts.each do |beast|%>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -11,6 +12,7 @@
           <%else%>
             <img class="card-img-top" src=<%= beast.image%> alt="Card image cap">
           <%end%>
+
           <div class="card-body">
             <h5 class="card-title">
               <%= beast.name%>
@@ -30,8 +32,9 @@
             <i class="fa-solid fa-sack-dollar"></i>
             <%= beast.price_per_day%> €
             </h6>
+
           </div>
-          <div class="card-footer">
+          <div class="card-footer d-flex justify-content-center">
           <% if current_user.present?%>
               <%if beast.owner_id == current_user.id%>
                 <%= link_to beast_path(beast),
@@ -46,4 +49,5 @@
       <%end%>
     </div>
   <%end%>
+</div>
 </div>
