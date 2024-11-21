@@ -44,6 +44,22 @@ class BookingsController < ApplicationController
     end
   end
 
+  def cancel
+    # Récupére la reservation
+    @booking = Booking.find(params[:id])
+    # Modifie la valeur associée à status en "canceled"
+    @booking.update_attribute(:status, "canceled")
+    redirect_to bookings_path, status: :see_other
+  end
+
+  def pay
+    # Récupére la reservation
+    @booking = Booking.find(params[:id])
+    # Modifie la valeur associée à status en "payed"
+    @booking.update_attribute(:status, "payed")
+    redirect_to bookings_path, status: :see_other
+  end
+
   private
 
   def booking_params
