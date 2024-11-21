@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
   <div>
-    <h1>DASHBOARD</h1>
+    <h1>Tableau de bord</h1>
     <h3>
       <%= current_user.email%>
     </h3>
@@ -17,5 +17,4 @@
     <%= link_to "Mes créatures", owner_beasts_path, class:"btn btn-primary"%>
     <%= link_to "Mes créatures en locations", owner_bookings_path, class:"btn btn-primary" %>
   <%end%>
-  <%= link_to "Mon profil", beasts_path, class:"btn btn-primary"%>
 </div>
