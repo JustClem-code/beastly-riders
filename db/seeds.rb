@@ -53,7 +53,7 @@ Beast.create!(
 
 Beast.create!(
   name: "Basilic, serpent d'un autre monde",
-  description: "Basilic est sans doute le serpent le plus câlin qu'il soit ! Si vous souhaitez voyager en douceur, prendre votre temps et apprécier le paysage, c'est Basilic qu'il vous faut, mais attention aux calins !!!",
+  description: "Basilic est sans doute le serpent le plus câlin qu'il soit ! Si vous souhaitez voyager en douceur, prendre votre temps et apprécier le paysage, c'est Basilic qu'il vous faut, mais attention aux câlins !!!",
   image: "https://cdn.shopify.com/s/files/1/0120/6992/9022/files/Serpent_Basilic_grande.jpeg?v=1575638794",
   category: " Sous-terraine ",
   price_per_day: "250 ",

@@ -9,7 +9,7 @@
         <%else%>
           <%= image_tag @beast.image, class: "img-fluid rounded ", alt: "image de la créature" %>
         <%end%>
-        <div class="row thumbnail-gallery">
+        <div class="row thumbnail-gallery" >
           <% 3.times do %>
             <%unless @beast.photos.empty?%>
               <div class="col-4">
@@ -47,8 +47,8 @@
       <% if @owner %>
         <%= link_to edit_beast_path(@beast), class: "btn btn-primary me-2" do %>
         <i class="fa-solid fa-pen-to-square"></i> Modifier
-      <% end %>
-      <%= link_to beast_path(@beast),
+        <% end %>
+        <%= link_to beast_path(@beast),
         data: { turbo_method: :delete, turbo_confirm: "Vous êtes sûr ?" },
         class: "btn btn-danger" do %>
         <i class="fa-solid fa-trash"></i> Supprimer
