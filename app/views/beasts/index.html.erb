@@ -5,7 +5,7 @@
         <div class="card m-1 d-flex flex-column justify-content-between" style="height: 500px;">
           <%unless beast.photos.empty?%>
             <% beast.photos.each do |image| %>
-              <%= cl_image_tag image.key, class: "card-img-top" %>
+              <%= cl_image_tag image.key, class: "card-img-top",  style: "height: 200px; object-fit: cover;" %>
             <%end%>
           <%else%>
             <img class="card-img-top" style="height: 200px; object-fit: cover;" src=<%= beast.image%> alt="Card image cap">
@@ -38,11 +38,11 @@
                 <%= link_to beast_path(beast),
                 data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"},
                 class:"btn btn-danger" do %>
-                <i class="fa-solid fa-trash"></i> Supprimer
+                <i class="fa-solid fa-trash"></i> Supprimer 
                 <% end %>
               <% else %>
                 <%= link_to beast_path(beast), class: "btn btn-success" do %>
-                  <i class="fa-solid fa-calendar-plus"></i> Réserver cette créature !
+                  <i class="fa-solid fa-calendar-plus"></i> Réserver !
                 <% end %>
               <%end%>
             <%end%>
