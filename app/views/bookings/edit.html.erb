@@ -1,10 +1,12 @@
 <h1>Modifier ma reservation</h1>
 <%= simple_form_for [@booking] do |f| %>
   <%= f.input :date_start,
+            label: "Date de début"
             as: :string,
             minDate: "today",
             input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :date_end,
+            label: "Date de fin"
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
   <%= f.submit "Confirmer la réservation", class: "btn btn-primary", data: {turbo_method: :post, turbo_confirm: "Vous confirmez votre réservation ?"}%>
