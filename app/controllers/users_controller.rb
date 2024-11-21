@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-
   def dashboard
-    @beast = Beast.all
-    @user = current_user
+    @is_owner = Beast.where(owner: current_user).present?
   end
-
 end

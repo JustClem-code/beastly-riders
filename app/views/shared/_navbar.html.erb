@@ -16,10 +16,9 @@
     <%= link_to "Proposer la location de ma monture", new_beast_path, class: "btn purple-btn p-2 m-3" %>
     <%# Si pas authentifié, bouton Sign up %>
     <%if user_signed_in?%>
-      <%= link_to "Dashboard", dashboard_path, class: "nav-link active m-3 p-2"%>
+      <%= link_to "Tableau de bord", dashboard_path, class: "nav-link active m-3 p-2"%>
     <%else%>
-      <%= link_to "Signup", new_user_registration_path, class: "nav-link active m-3 p-2"%>
+      <%= link_to "Se connecter", new_user_session_path, class: "nav-link active m-3 p-2"%>
     <%end%>
-    <%# Si authentifié, bouton vers le profil faisant apparaitre le nom et l'avatar %>
   </div>
 </nav>

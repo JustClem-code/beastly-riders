@@ -1,5 +1,6 @@
 class Beast < ApplicationRecord
-  has_many :users, through: :bookings, dependent: :destroy
+  has_many :users, through: :bookings
+  has_many :bookings, dependent: :destroy
   has_many_attached :photos
   belongs_to :owner, class_name: "User"
 
