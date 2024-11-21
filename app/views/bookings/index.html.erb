@@ -9,10 +9,8 @@
             <%=booking.beast.name%>
           </div>
           <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
-          <p><%=booking.beast.price_per_day%> per day</p>
+          <p><%=booking.beast.price_per_day%> €</p>
         </div>
-        <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
-        <p><%=booking.beast.price_per_day%> per day</p>
         <%# indique le status de la reservation %>
         <div>
           <% if booking.status == "created" || booking.status == "modified" %>
