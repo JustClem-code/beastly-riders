@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def new
     @booking = Booking.new
     @beast = Beast.find(params[:beast_id])
@@ -20,7 +24,7 @@ class BookingsController < ApplicationController
 
     # Tente de sauvegarder et gère les résultats
     if @booking.save
-      redirect_to beast_path(@beast), notice: 'Booking was successfully created.'
+      redirect_to beast_path(@beast), notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
