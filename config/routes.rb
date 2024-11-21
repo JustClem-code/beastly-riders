@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:edit, :update]
+  patch "bookings/:id/pay", to: "bookings#pay", as: "booking_pay"
+  patch "bookings/:id/cancel", to: "bookings#cancel", as: "booking_cancel"
+
 
   get "/dashboard", to: "users#dashboard"
 
@@ -28,6 +31,7 @@ Rails.application.routes.draw do
       member do
         patch :accept
         patch :decline
+        patch :cancel
       end
     end
   end
