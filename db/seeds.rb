@@ -36,8 +36,8 @@ Beast.create!(
   description: "Elle est magnifique et très douce, mais ne vous y fiez pas, elle pourra vous amener à bon port sans encombre. Si vous avez besoin d'amadaouer qui que ce soit sur votre trajet, c'est Huguette la Licorne qu'il vous faut ! Présence de paillettes dans vos cheveux encore longtemps après le voyage ... ",
   image: "https://monde-licorne.com/cdn/shop/articles/legende_licorne_1457a230-106b-4322-affd-ff6012aaef35.png?v=1561526031",
   category: " Terrestre ",
-  price_per_day: "599",
-  speed: "120",
+  price_per_day: 599,
+  speed: 120,
   owner: user1
 )
 
@@ -46,8 +46,8 @@ Beast.create!(
   description: "Malgré les apparences, Cthullu est trés amical avec les autres animaux. Ainsi, si vous souhaitez vous déplacer avec vos compagnons à poils ou à plumes, Cthullu est la bonne monture ! Et bien sûr, à une vitesse supersonique !!!",
   image: "https://www.nccri.ie/fantastique/pic/cthulhu01.jpg",
   category: " Volante ",
-  price_per_day: "1200",
-  speed: "1250",
+  price_per_day: 1200,
+  speed: 1250,
   owner: user2
 )
 
@@ -56,8 +56,8 @@ Beast.create!(
   description: "Basilic est sans doute le serpent le plus câlin qu'il soit ! Si vous souhaitez voyager en douceur, prendre votre temps et apprécier le paysage, c'est Basilic qu'il vous faut, mais attention aux câlins !!!",
   image: "https://cdn.shopify.com/s/files/1/0120/6992/9022/files/Serpent_Basilic_grande.jpeg?v=1575638794",
   category: " Sous-terraine ",
-  price_per_day: "250 ",
-  speed: "35",
+  price_per_day: 250,
+  speed: 35,
   owner: user3
 )
 
@@ -66,8 +66,8 @@ Beast.create!(
   description: "Krakenounet est non seulement trés mignon mais il traverse aussi les océans comme personne ! Avec sa vitesse importante, vous voguerez sur et dans les océans pour arriver à bon port en un rien de temps ! En revanche, combi intégrale nécesssaire !!!",
   image: "https://cdn.shopify.com/s/files/1/0527/4291/4198/files/Kraken_le_monstre_Marin_4.jpg?v=1726686416",
   category: " Aquatique ",
-  price_per_day: "5999",
-  speed: "667",
+  price_per_day: 5999,
+  speed: 667,
   owner: user1
 )
 
