@@ -15,13 +15,30 @@
             <h5 class="card-title">
               <%= beast.name%>
             </h5>
-            <p class="card-text"><%= beast.description%></p>
+            <p class="card-text, text-truncate"><%= beast.description%></p>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <i class="fa-solid fa-tag"></i>
+            <%= beast.category%>
+            </h6>
 
+            <h6 class="card-subtitle mb-2 text-muted">
+            <i class="fa-solid fa-gauge"></i>
+            <%= beast.speed%> km/h
+            </h6>
+
+            <h6 class="card-subtitle mb-2 text-muted">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <%= beast.price_per_day%> €
+            </h6>
           </div>
           <div class="card-footer">
           <% if current_user.present?%>
               <%if beast.owner_id == current_user.id%>
-                <%= link_to "Supprimer", beast_path(beast), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary button" %>
+                <%= link_to beast_path(beast),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class:"btn btn-danger" do %>
+                <i class="fa-solid fa-trash"></i> Supprimer
+               <%end%>
               <%end%>
             <%end%>
           </div>
