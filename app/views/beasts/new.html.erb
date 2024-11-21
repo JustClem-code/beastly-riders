@@ -1,5 +1,5 @@
 <div class="container">
   <% current_user.email if user_signed_in? %>
   <h1>NOUVELLE CREATURE</h1>
- <%= render "beasts/beasts_form", beast: @beast%>
+ <%= render, "beasts/beasts_form", beast: @beast%>
  </div>
