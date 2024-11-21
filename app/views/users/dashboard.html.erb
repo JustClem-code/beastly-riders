@@ -7,7 +7,7 @@
   </div>
   <div>
     <%if user_signed_in?%>
-      <%= link_to "Sign_out", destroy_user_session_path, class: "btn btn-warning m-3 p-2", data: {turbo_method: :delete, turbo_confirm: "Vous confirmez la déconnection ?"}%>
+      <%= link_to "Deconnexion", destroy_user_session_path, class: "btn btn-danger m-3 p-2", data: {turbo_method: :delete, turbo_confirm: "Vous confirmez la déconnexion ?"}%>
     <%end%>
   </div>
 </div>

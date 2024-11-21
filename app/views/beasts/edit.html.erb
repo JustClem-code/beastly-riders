@@ -1,15 +1,13 @@
 <div class="container">
   <% current_user.email if user_signed_in? %>
-  <h1><%= "Modifier mon annonce" %></h1>
+  <h1> Modifier mon annonce </h1>
   <%= simple_form_for @beast do |f| %>
-    <%= f.input :name%>
+    <%= f.input :name, label: "Nom"%>
     <%= f.input :description, as: :text%>
-    <%# Enlever as: :float, remplacer par :text%>
-    <%= f.input :price_per_day, as: :float%>
-    <%= f.input :image, as: :file%>
-    <%= f.input :category, collection: Beast::CATEGORY, default: Beast::CATEGORY%>
-    <%# Enlever as: :float, remplacer par :text%>
-    <%= f.input :speed, as: :float%>
-    <%= f.submit "Edit Beast", class: "btn btn-primary" %>
+    <%= f.input :price_per_day, as: :float, label: "Prix"%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    <%= f.input :category, collection: Beast::CATEGORY, default: Beast::CATEGORY, label: "Catégorie"%>
+    <%= f.input :speed, as: :float, label: "Vitesse"%>
+    <%= f.submit "Valider mes modifications", class: "btn btn-primary" %>
   <% end %>
 </div>
