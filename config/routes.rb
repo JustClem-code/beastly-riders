@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  resources :bookings, only: [:index]
   resources :beasts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
 
   namespace :owner do
     resources :beasts, only: [:index]
-    resources :bookings, only: [:index, :show] do
+    resources :bookings, only: [:index] do
       member do
         patch :accept
         patch :decline

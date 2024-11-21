@@ -1,4 +1,10 @@
 class Owner::BookingsController < ApplicationController
+  def index
+    # TODO: récupérer les locations
+    @owner_beasts = Beast.where(owner: current_user)
+    @bookings = Booking.where(beast: @owner_beasts)
+  end
+
   def accept
     # Récupére la reservation
     @booking = Booking.find(params[:id])
@@ -13,9 +19,5 @@ class Owner::BookingsController < ApplicationController
     # Modifie la valeur associée à status en "canceled"
     @booking.update_attibute(:status, "canceled")
     redirect_to owner_bookings_path, status: :see_other
-  end
-  
-  def index
-    @bookings = Booking.where(user: current_user)
   end
 end
