@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :beasts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create]
   end
+  resources :bookings, only: [:edit, :update]
 
   get "/dashboard", to: "users#dashboard"
 
