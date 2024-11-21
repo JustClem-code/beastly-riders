@@ -37,10 +37,9 @@
       </div>
       <%# si le status n'est pas cancel ou payed, le owner peut annuler %>
       <div>
-        <% unless booking.status == "canceled" %>
+        <% unless booking.status == "canceled" || booking.status == "payed" %>
         <%= link_to "Annuler la reservation", cancel_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
         <% end %>
-        <%# || booking.status == "payed" %>
       </div>
     </li>
   </ol>
