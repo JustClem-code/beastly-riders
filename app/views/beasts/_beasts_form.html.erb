@@ -1,0 +1,15 @@
+
+  <%= simple_form_for @beast do |f| %>
+    <%= f.input :name%>
+    <%= f.input :description, as: :text%>
+    <%# Enlever as: :float, remplacer par :text%>
+    <%= f.input :price_per_day, as: :float%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    <%= f.input :category, collection: Beast::CATEGORY, default: Beast::CATEGORY%>
+    <%# Enlever as: :float, remplacer par :text%>
+    <%= f.input :speed, as: :float%>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+

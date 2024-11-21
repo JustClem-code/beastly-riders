@@ -33,18 +33,17 @@
 
           </div>
           <div class="card-footer d-flex justify-content-center">
-          <% if current_user.present?%>
+            <%= link_to beast_path(beast), class: "btn btn-success" do %>
+                  <i class="fa-solid fa-calendar-plus"></i> Réserver !
+                <% end %>
+            <% if current_user.present?%>
               <%if beast.owner_id == current_user.id%>
                 <%= link_to beast_path(beast),
                 data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr?"},
                 class:"btn btn-danger" do %>
-                <i class="fa-solid fa-trash"></i> Supprimer 
+                <i class="fa-solid fa-trash"></i> Supprimer
                 <% end %>
-              <% else %>
-                <%= link_to beast_path(beast), class: "btn btn-success" do %>
-                  <i class="fa-solid fa-calendar-plus"></i> Réserver !
-                <% end %>
-              <%end%>
+              <% end %>
             <%end%>
           </div>
         </div>
