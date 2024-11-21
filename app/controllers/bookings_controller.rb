@@ -15,6 +15,9 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.beast = @beast
 
+    # Attribut le statut "created" à la nouvelle reservation
+    @booking.status = "created"
+
     # Tente de sauvegarder et gère les résultats
     if @booking.save
       redirect_to beast_path(@beast), notice: 'Booking was successfully created.'
