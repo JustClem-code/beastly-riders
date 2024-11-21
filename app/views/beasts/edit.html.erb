@@ -5,7 +5,7 @@
     <%= f.input :name, label: "Nom"%>
     <%= f.input :description, as: :text%>
     <%= f.input :price_per_day, as: :float, label: "Prix"%>
-    <%= f.input :image, as: :file%>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
     <%= f.input :category, collection: Beast::CATEGORY, default: Beast::CATEGORY, label: "Catégorie"%>
     <%= f.input :speed, as: :float, label: "Vitesse"%>
     <%= f.submit "Valider mes modifications", class: "btn btn-primary" %>
