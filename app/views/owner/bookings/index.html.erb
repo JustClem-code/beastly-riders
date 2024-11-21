@@ -11,6 +11,29 @@
           <%= booking.user.email%>
         </p>
       </div>
+      <%# indique le status de la reservation %>
+      <div>
+        <% if booking.status == "created" || booking.status == "modified" %>
+        <p>En attente de validation</p>
+        <% elsif booking.status == "validated" %>
+        <p>En attente de paiement</p>
+        <% elsif booking.status == "payed" %>
+        <p>Reservation confirmée</p>
+        <% elsif booking.status == "canceled" %>
+        <p>Reservation annulée</p>
+        <% end %>
+      </div>
+      <%# si le status est créé ou modifié, on peut accepter ou decline %>
+      <div>
+        <% if booking.status == "created" || booking.status == "modified" %>
+        <%= link_to "Accepter", accept_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div>
+        <% if booking.status == "created" || booking.status == "modified" %>
+        <%= link_to "Refuser", decline_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </li>
   </ol>
 <%end%>

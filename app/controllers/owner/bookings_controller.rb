@@ -9,7 +9,7 @@ class Owner::BookingsController < ApplicationController
     # Récupére la reservation
     @booking = Booking.find(params[:id])
     # Modifie la valeur associée à status en "validated"
-    @booking.update_attibute(:status, "validated")
+    @booking.update_attribute(:status, "validated")
     redirect_to owner_bookings_path, status: :see_other
   end
 
@@ -17,7 +17,7 @@ class Owner::BookingsController < ApplicationController
     # Récupére la reservation
     @booking = Booking.find(params[:id])
     # Modifie la valeur associée à status en "canceled"
-    @booking.update_attibute(:status, "canceled")
+    @booking.update_attribute(:status, "canceled")
     redirect_to owner_bookings_path, status: :see_other
   end
 end
