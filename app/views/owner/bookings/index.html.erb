@@ -1,0 +1,13 @@
+<% @bookings.each do |booking|%>
+  <ol class="list-group list-group-numbered">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">
+          <%=booking.beast.name%>
+        </div>
+        <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
+        <p><%=booking.beast.price_per_day%> per day</p>
+      </div>
+    </li>
+  </ol>
+<%end%>
