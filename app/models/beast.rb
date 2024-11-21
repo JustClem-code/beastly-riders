@@ -11,4 +11,11 @@ class Beast < ApplicationRecord
   validates :price_per_day, presence: true
   # validates :owner_id, presence: true
   validates :category, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+                  against: [:name, :category],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -1,8 +1,8 @@
 <%if @bookings.empty?%>
   <p>Aucune réservation</p>
 <%else%>
-  <% @bookings.each do |booking|%>
-    <ol class="list-group list-group-numbered">
+  <ol class="list-group list-group-numbered">
+    <% @bookings.each do |booking|%>
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
           <div class="fw-bold">
@@ -11,41 +11,39 @@
           <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
           <p><%=booking.beast.price_per_day%> per day</p>
         </div>
-
         <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
         <p><%=booking.beast.price_per_day%> per day</p>
-      </div>
-      <%# indique le status de la reservation %>
-      <div>
-        <% if booking.status == "created" || booking.status == "modified" %>
-        <p>En attente de validation</p>
-        <% elsif booking.status == "validated" %>
-        <p>En attente de paiement</p>
-        <% elsif booking.status == "payed" %>
-        <p>Reservation confirmée</p>
-        <% elsif booking.status == "canceled" %>
-        <p>Reservation annulée</p>
-        <% end %>
-      </div>
-      <%# si le status est créé ou validé, on peut modifier (pas si c'est payé, modifié ou annulé) %>
-      <div>
-        <% if booking.status == "created" || booking.status == "validated" %>
-        <%= link_to "Modifier", edit_booking_path(booking.id), class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      <div>
-        <%# Ajouter le path quand la method "pay" et sa route seront créés %>
-        <% if booking.status == "validated" %>
-        <%= link_to "Payer", booking_pay_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      <div>
-      <%# si le status est tout sauf annulé, on voit le bouton annuler %>
-        <% unless booking.status == "canceled" %>
-        <%= link_to "Annuler", booking_cancel_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary"%>
-        <%end%>
-      </div>
-    </li>
+        <%# indique le status de la reservation %>
+        <div>
+          <% if booking.status == "created" || booking.status == "modified" %>
+            <p>En attente de validation</p>
+          <% elsif booking.status == "validated" %>
+            <p>En attente de paiement</p>
+          <% elsif booking.status == "payed" %>
+            <p>Reservation confirmée</p>
+          <% elsif booking.status == "canceled" %>
+            <p>Reservation annulée</p>
+          <% end %>
+        </div>
+        <%# si le status est créé ou validé, on peut modifier (pas si c'est payé, modifié ou annulé) %>
+        <div>
+          <% if booking.status == "created" || booking.status == "validated" %>
+            <%= link_to "Modifier", edit_booking_path(booking.id), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div>
+          <%# Ajouter le path quand la method "pay" et sa route seront créés %>
+          <% if booking.status == "validated" %>
+            <%= link_to "Payer", booking_pay_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div>
+          <%# si le status est tout sauf annulé, on voit le bouton annuler %>
+          <% unless booking.status == "canceled" %>
+            <%= link_to "Annuler", booking_cancel_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary"%>
+          <%end%>
+        </div>
+      </li>
+    <%end%>
   </ol>
-
 <%end%>

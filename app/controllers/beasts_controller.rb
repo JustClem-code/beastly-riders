@@ -3,6 +3,9 @@ class BeastsController < ApplicationController
 
   def index
     @beasts = Beast.all
+    if params[:query].present?
+      @beasts = Beast.search_by_name(params[:query])
+    end
   end
 
   def new
