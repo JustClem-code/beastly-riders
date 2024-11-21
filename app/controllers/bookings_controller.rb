@@ -30,8 +30,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def update(booking)
-    @booking = booking
+  def update
+    @booking = Booking.find(params[:id])
     @booking.status = "modified"
     if @booking.update(booking_params)
       redirect_to bookings_path
