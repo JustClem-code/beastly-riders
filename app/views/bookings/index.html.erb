@@ -40,12 +40,12 @@
               <%= link_to "Annuler", booking_cancel_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-outline-danger"%>
             <%end%>
           </div>
-           <div class="mx-1">
-          <%# Ajouter le path quand la method "pay" et sa route seront créés %>
-          <% if booking.status == "validated" %>
-            <%= link_to "Payer", booking_pay_path(booking.id), data: {turbo_method: :patch, turbo_confirm: "Voulez vous payer #{calcul =(booking.date_end - booking.date_start).to_i * booking.beast.price_per_day}€ ??" }, class: "btn btn-primary" %>
-          <% end %>
-        </div>
+          <div class="mx-1">
+            <%# Ajouter le path quand la method "pay" et sa route seront créés %>
+            <% if booking.status == "validated" %>
+              <%= link_to "Payer", booking_pay_path(booking.id), data: {turbo_method: :patch, turbo_confirm: "Voulez vous payer #{calcul =(booking.date_end - booking.date_start).to_i * booking.beast.price_per_day}€ ??" }, class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
       </li>
     <%end%>
