@@ -19,7 +19,8 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image:url('licorne.jpg')
+  background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('licorne.jpg');
+  margin-bottom: 30px;
 }
 
 .banner h1 {
