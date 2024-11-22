@@ -35,12 +35,6 @@
             <% end %>
           </div>
           <div class="mx-1">
-            <%# Ajouter le path quand la method "pay" et sa route seront créés %>
-            <% if booking.status == "validated" %>
-              <%= link_to "Payer", booking_pay_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          <div class="mx-1">
             <%# si le status est tout sauf annulé, on voit le bouton annuler %>
             <% unless booking.status == "canceled" %>
               <%= link_to "Annuler", booking_cancel_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-outline-danger"%>
