@@ -1,22 +1,23 @@
 <div class="container">
   <div class="row"> <!-- Utilisation d'une rangée Bootstrap -->
-    <div class="col-md-6"> <!-- Colonne pour les images (maintenant à gauche) -->
-      <div class="image-gallery">
+    <div class="col-md-6 mb-3"> <!-- Colonne pour les images (maintenant à gauche) -->
+      <div class="image-gallery mb-3">
         <%unless @beast.photos.empty?%>
           <% @beast.photos.each do |image| %>
-            <%= cl_image_tag image.key, class: "img-fluid rounded" %>
+            <%= cl_image_tag image.key, class: "img-fluid col-md-12 rounded mb-3" %>
           <%end%>
         <%else%>
-          <%= image_tag @beast.image, class: "img-fluid rounded ", alt: "image de la créature" %>
+          <%= image_tag @beast.image, class: "img-fluid col-md-12 rounded mb-3", alt: "Image de la créature" %>
         <%end%>
         <div class="row thumbnail-gallery" >
+        <div></div>
           <% 3.times do %>
             <%unless @beast.photos.empty?%>
-              <div class="col-4">
+              <div class="col-4 mb-3">
                 <%= image_tag @beast.photos[0], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
               </div>
             <%else%>
-              <div class="col-4">
+              <div class="col-4 mb-3">
                 <%= image_tag @beast.image, class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
               </div>
             <%end%>
@@ -53,12 +54,10 @@
         class: "btn btn-danger" do %>
         <i class="fa-solid fa-trash"></i> Supprimer
         <% end %>
-      <% else %>
-        <%= link_to new_beast_booking_path(@beast), class: "btn btn-success" do %>
-        <i class="fa-solid fa-calendar-plus"></i> Réserver cette créature !
-        <% end %>
       <% end %>
-  </div>
+    <%= render "bookings/form", beast:@beast, booking:@booking %>
+    </div>
     </div>
   </div>
 </div>
+
