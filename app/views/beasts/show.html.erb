@@ -1,29 +1,51 @@
 <div class="container">
   <div class="row"> <!-- Utilisation d'une rangée Bootstrap -->
     <div class="col-md-6 mb-3"> <!-- Colonne pour les images (maintenant à gauche) -->
+      <%# Affichage des images %>
       <div class="image-gallery mb-3">
         <%unless @beast.photos.empty?%>
-          <% @beast.photos.each do |image| %>
-            <%= cl_image_tag image.key, class: "img-fluid col-md-12 rounded mb-3" %>
-          <%end%>
+          <%= image_tag @beast.photos[0], class: "img-fluid col-md-12 rounded mb-3", alt: "Image de la créature" %>
         <%else%>
           <%= image_tag @beast.image, class: "img-fluid col-md-12 rounded mb-3", alt: "Image de la créature" %>
         <%end%>
-        <div class="row thumbnail-gallery" >
-        <div></div>
-          <% 3.times do %>
+        <%# Affichage des petites images %>
+        <div class="row thumbnail-gallery">
+          <%# <% 3.times do %>
             <%unless @beast.photos.empty?%>
+              <%# si il n'y a que deux photo : une seule petite photo %>
+              <% if @beast.photos.count <= 2 %>
               <div class="col-4 mb-3">
-                <%= image_tag @beast.photos[0], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+                <%= image_tag @beast.photos[1], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
               </div>
-            <%else%>
+              <%# si il n'y a que 3 photos : deux petites photos %>
+              <% elsif @beast.photos.count <= 3 %>
               <div class="col-4 mb-3">
-                <%= image_tag @beast.image, class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+                <%= image_tag @beast.photos[1], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
               </div>
+              <div class="col-4 mb-3">
+                <%= image_tag @beast.photos[2], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+              <%# s'il y a 4 photos : trois petites photos %>
+              <% elsif @beast.photos.count <= 4 %>
+              <div class="col-4 mb-3">
+                <%= image_tag @beast.photos[1], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+              <div class="col-4 mb-3">
+                <%= image_tag @beast.photos[2], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+              <div class="col-4 mb-3">
+                <%= image_tag @beast.photos[3], class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              </div>
+              <% end %>
+              <%# <%else%>
+              <%# <div class="col-4 mb-3"> %>
+                <%# <%= image_tag @beast.image, class: "img-fluid rounded thumbnail", alt: "Miniature de la créature" %>
+              <%# </div> %>
             <%end%>
-          <% end %>
+          <%# <% end %>
         </div>
       </div>
+
     </div>
     <div class="col-md-6"> <!-- Colonne pour le texte (maintenant à droite) -->
       <h1><%= @beast.name %></h1>
