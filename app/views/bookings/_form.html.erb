@@ -1,4 +1,4 @@
-<h1>Nouvelle reservation</h1>
+
 <%= simple_form_for [@beast, @booking] do |f| %>
   <%= f.input :date_start,
             label: "Date de début",
@@ -9,5 +9,5 @@
             label: "Date de fin",
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-  <%= f.submit "Confirmer la réservation", class: "btn btn-primary", data: {turbo_method: :post, turbo_confirm: "Vous confirmez votre réservation ?"}%>
+  <%= f.submit "Réserver !", class: "btn btn-success", data: {turbo_method: :post, turbo_confirm: "Vous confirmez votre réservation ?"}%>
 <% end %>

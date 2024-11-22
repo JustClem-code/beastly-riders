@@ -4,7 +4,7 @@ class Beast < ApplicationRecord
   has_many_attached :photos
   belongs_to :owner, class_name: "User"
 
-  CATEGORY = ["💧 Aquatique 💧", "🪽 Volante 🪽", "🦄 Terrestre 🦄", "🕳️ Sous-terraine 🕳️"]
+  CATEGORY = ["Aquatique", "Volante", "Terrestre", "Sous-terraine"]
 
   validates :name, presence: true
   validates :description, presence: true
