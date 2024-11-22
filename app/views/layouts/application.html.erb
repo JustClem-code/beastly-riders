@@ -16,7 +16,10 @@
   <body>
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>
-    <div class="container container-principal">
+    <% if controller_name == 'beasts' && action_name == 'index' %>
+      <%= render "shared/banner" %>
+    <%end%>
+    <div class="container container-principal my-3">
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
