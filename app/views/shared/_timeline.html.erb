@@ -1,11 +1,11 @@
 <%# Timeline %>
 <div class="d-flex">
-  <div class="timeline-<%= status == 'payed' ? 'orange' : 'green' %>">
+  <div class="timeline-<%= status == 'payed' || status == 'validated' ? 'green' : 'orange' %>">
     <div class="container-timeline-green">
     </div>
   </div>
-  <div class="timeline-<%= status == 'payed' ? 'orange' : 'green'%>">
-    <div class="container-timeline-<%= status == 'payed' ? 'green' : 'orange'%>">
+  <div class="timeline-<%= status == 'payed' ? 'green' : 'orange'%>">
+    <div class="container-timeline-<%= status == 'payed' || status == 'validated' ? 'green' : 'orange'%>">
     </div>
   </div>
   <div class="timeline-green-last">
