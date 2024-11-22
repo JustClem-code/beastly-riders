@@ -3,4 +3,8 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
   # demande l'authentification systematique
   before_action :authenticate_user!
+
+  def after_sign_in_path_for(resource)
+    beasts_path
+  end
 end
