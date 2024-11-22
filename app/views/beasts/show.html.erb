@@ -54,17 +54,10 @@
         class: "btn btn-danger" do %>
         <i class="fa-solid fa-trash"></i> Supprimer
         <% end %>
-      <% else %>
-        <%= link_to new_beast_booking_path(@beast), class: "btn btn-success" do %>
-        <i class="fa-solid fa-calendar-plus"></i> Réserver !
-        <% end %>
       <% end %>
-  <%# <div class="container">
-  <% current_user.email if user_signed_in? %>
-  <%# <h1>NOUVELLE RESERVATION</h1> %>
-  <%# <%= render "bookings/form", booking: @booking, beast: @beast%> 
-  <%# </div> %>
-  </div>
+    <%= render "bookings/form", beast:@beast, booking:@booking %>
+    </div>
     </div>
   </div>
 </div>
+

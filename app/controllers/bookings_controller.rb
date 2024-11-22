@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to beast_path(@beast), notice: "Booking was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render "beasts/show", status: :unprocessable_entity, notice: "Choisissez vos dates de location !"
     end
   end
 

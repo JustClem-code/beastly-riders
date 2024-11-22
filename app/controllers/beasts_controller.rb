@@ -22,6 +22,7 @@ class BeastsController < ApplicationController
   def show
     @beast = Beast.find(params[:id])
     @owner = @beast.owner == current_user
+    @booking = Booking.new
   end
 
   def edit
