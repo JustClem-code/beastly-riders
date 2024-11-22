@@ -112,4 +112,35 @@ beast6.save
 
 puts "===========#{Beast.count} beasts crées ==========="
 
-puts "===========Création Fini================="
+puts "=============== Création des Bookings ============="
+
+b = Booking.new(
+  status: "created",
+  date_start: "2024-11-22",
+  date_end: "2024-11-24"
+)
+b.beast = beast1
+b.user = user3
+b.save!
+
+b = Booking.new(
+  status: "payed",
+  date_start: "2024-11-22",
+  date_end: "2024-11-24"
+)
+b.beast = beast4
+b.user = user2
+b.save!
+
+b = Booking.new(
+  status: "validated",
+  date_start: "2024-11-22",
+  date_end: "2024-11-26"
+)
+b.beast = beast6
+b.user = user1
+b.save!
+
+puts "=========#{Booking.count} Booking crées !=========="
+
+puts "=========== Création Fini ================="
