@@ -11,7 +11,7 @@
         <%# Affichage des petites images %>
         <div class="row thumbnail-gallery">
           <%# <% 3.times do %>
-            <%unless @beast.photos.empty?%>
+            <%unless @beast.photos.empty? || @beast.photos.count <= 1 %>
               <%# si il n'y a que deux photo : une seule petite photo %>
               <% if @beast.photos.count <= 2 %>
               <div class="col-4 mb-3">
