@@ -110,6 +110,84 @@ file = URI.parse("https://ghiblishop.fr/wp-content/uploads/2021/10/unnamed-1.jpe
 beast6.photos.attach(io: file, filename: "manticore.png", content_type: "image/png")
 beast6.save
 
+beast7 = Beast.create!(
+  name: "Pegase Ailé",
+  description: "Une majestueuse créature céleste dotée de grandes ailes blanches scintillantes, capable de voler à travers les cieux avec une grâce inégalée. Pégase, descendant des dieux, est une monture parfaite pour ceux qui cherchent vitesse, élégance et une vue aérienne à couper le souffle. Pourquoi la louer ?: 'Survolez les paysages, traversez les tempêtes et dominez les cieux avec une monture divine ! Pégase ne fait qu’un avec le vent.'",
+  category: " Volante ",
+  price_per_day: 1800,
+  speed: 456,
+  owner: user1
+)
+
+file = URI.parse("https://fac.img.pmdstatic.net/fit/~1~fac~2022~11~08~0ff187aa-043d-4076-9df5-7e1ad0e18a3f.jpeg/422x237/quality/80/crop-from/center/tout-savoir-sur-pegase-le-cheval-aile-de-la-mythologie-grecque.jpeg").open
+beast7.photos.attach(io: file, filename: "pegase.png", content_type: "image/png")
+beast7.save
+
+beast8 = Beast.create!(
+  name: "Qilin",
+  description: "Une créature élégante mi-dragon, mi-cerf, avec des écailles dorées et des sabots délicats. Connue pour apporter paix et prospérité, le Qilin voyage sans jamais laisser de trace, offrant un trajet silencieux et respectueux de la nature. Pourquoi la louer ?: 'Élevez-vous avec la noblesse d’un gardien mystique et profitez d’un voyage aussi doux qu’un nuage. Le Qilin est le choix des sages !'",
+  category: " Volante ",
+  price_per_day: 8595,
+  speed: 999,
+  owner: user2
+)
+
+file = URI.parse("https://cdn.shopify.com/s/files/1/0269/0868/8432/files/Qilin_L_Ame_Pure_4.jpg?v=1726514261").open
+beast8.photos.attach(io: file, filename: "qilin.png", content_type: "image/png")
+beast8.save
+
+beast9 = Beast.create!(
+  name: "Kelpie",
+  description: "Une créature aquatique métamorphe, souvent vue sous la forme d’un magnifique cheval noir à la crinière humide scintillant comme la mer. Rapide et puissant, il peut galoper à travers les terres et nager dans les océans avec une aisance surnaturelle. Pourquoi la louer ?: 'que vous affrontiez les vagues ou que vous parcouriez des plages sauvages, le Kelpie est votre monture pour l’aventure ultime.'",
+  category: " Aquatique ",
+  price_per_day: 450,
+  speed: 110,
+  owner: user3
+)
+
+file = URI.parse("https://sirenas.fr/wp-content/uploads/2021/07/kelpie-cheval-ondin.png").open
+beast9.photos.attach(io: file, filename: "kelpie.png", content_type: "image/png")
+beast9.save
+
+beast10 = Beast.create!(
+  name: "Amarok",
+  description: "Un gigantesque loup solitaire doté d’un pelage argenté qui brille sous la lune. L’Amarok est à la fois protecteur et féroce, garantissant un trajet sécurisé même dans les régions les plus hostiles et gelées. Pourquoi la louer ?: 'Traversez les toundras avec la force d’un prédateur mythique. L’Amarok vous emmènera là où personne n’a osé s’aventurer.'",
+  category: " Terrestre ",
+  price_per_day: 120,
+  speed: 130,
+  owner: user3
+)
+
+file = URI.parse("https://oldworldgods.com/wp-content/uploads/2024/04/amarokmythologyinuit3.jpg").open
+beast10.photos.attach(io: file, filename: "amarok.png", content_type: "image/png")
+beast10.save
+
+beast11 = Beast.create!(
+  name: "Griffon",
+  description: "Une créature mi-aigle, mi-lion, dotée de griffes acérées et d’ailes imposantes. Symbole de puissance et de majesté, le Griffon est une monture fiable pour les terrains aériens et montagneux.  Pourquoi la louer ?: 'Laissez un roi des airs et des montagnes être votre guide. Le Griffon vous transporte avec audace et prestige !'",
+  category: " Volante ",
+  price_per_day: 456,
+  speed: 99,
+  owner: user1
+)
+
+file = URI.parse("https://static.wikia.nocookie.net/thesoulstones/images/8/88/441b8dbf9b4fe9d62d70e853e54dd243.png/revision/latest?cb=20180626012038&path-prefix=tr").open
+beast11.photos.attach(io: file, filename: "griffon.png", content_type: "image/png")
+beast11.save
+
+beast12 = Beast.create!(
+  name: "Sleipnir",
+  description: "Le légendaire cheval à huit jambes d’Odin, capable de galoper sur terre, sur l’eau, et même entre les royaumes. Sleipnir est la monture idéale pour les aventuriers en quête de destinations mystiques et lointaines. Pourquoi la louer ?: 'Vitesse inégalée, endurance infinie, et un passeport pour les mondes cachés ? Sleipnir est le compagnon ultime pour votre épopée.'",
+  category: " Terrestre ",
+  price_per_day: 10_596,
+  speed: 850,
+  owner: user3
+)
+
+file = URI.parse("https://i0.wp.com/histoiresfantastiques.com/wp-content/uploads/2022/09/Sleipnir-Alaiaorax.png?fit=1000%2C711&ssl=1").open
+beast12.photos.attach(io: file, filename: "sleipnir.png", content_type: "image/png")
+beast12.save
+
 puts "===========#{Beast.count} beasts crées ==========="
 
 puts "=============== Création des Bookings ============="
