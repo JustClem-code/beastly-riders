@@ -1,39 +1,50 @@
-<% @bookings.each do |booking|%>
+<%if @bookings.empty?%>
+  <p>Aucune demande de location</p>
+<%else%>
   <ol class="list-group list-group-numbered">
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">
-          <%=booking.beast.name%>
+    <% @bookings.each do |booking|%>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">
+            <%=booking.beast.name%>
+          </div>
+          <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
+          <p><%=booking.beast.price_per_day%> €</p>
+          <p>
+            <%= booking.user.email%>
+          </p>
         </div>
-        <p>Du <%=booking.date_start%> au <%=booking.date_end%></p>
-        <p><%=booking.beast.price_per_day%> per day</p>
-        <p>
-          <%= booking.user.email%>
-        </p>
-      </div>
-      <%# indique le status de la reservation %>
-      <div>
-        <% if booking.status == "created" || booking.status == "modified" %>
-        <p>En attente de validation</p>
-        <% elsif booking.status == "validated" %>
-        <p>En attente de paiement</p>
-        <% elsif booking.status == "payed" %>
-        <p>Reservation confirmée</p>
-        <% elsif booking.status == "canceled" %>
-        <p>Reservation annulée</p>
-        <% end %>
-      </div>
-      <%# si le status est créé ou modifié, on peut accepter ou decline %>
-      <div>
-        <% if booking.status == "created" || booking.status == "modified" %>
-        <%= link_to "Accepter", accept_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      <div>
-        <% if booking.status == "created" || booking.status == "modified" %>
-        <%= link_to "Refuser", decline_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </li>
+        <%# indique le status de la reservation %>
+        <div>
+          <% if booking.status == "created" || booking.status == "modified" %>
+            <p>En attente de validation</p>
+          <% elsif booking.status == "validated" %>
+            <p>En attente de paiement</p>
+          <% elsif booking.status == "payed" %>
+            <p>Reservation confirmée</p>
+          <% elsif booking.status == "canceled" %>
+            <p>Reservation annulée</p>
+          <% end %>
+        </div>
+        <%# si le status est créé ou modifié, on peut accepter %>
+        <div>
+          <% if booking.status == "created" || booking.status == "modified" %>
+            <%= link_to "Accepter", accept_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <%# si le status est créé ou modifié, on peut refuser %>
+        <div>
+          <% if booking.status == "created" || booking.status == "modified" %>
+            <%= link_to "Refuser", decline_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <%# si le status n'est pas cancel ou payed, le owner peut annuler %>
+        <div>
+          <% unless booking.status == "canceled" || booking.status == "payed" %>
+            <%= link_to "Annuler la reservation", cancel_owner_booking_path(booking.id), data: {turbo_method: :patch}, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </li>
+    <%end%>
   </ol>
 <%end%>

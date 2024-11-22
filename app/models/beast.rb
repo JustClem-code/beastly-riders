@@ -1,13 +1,21 @@
 class Beast < ApplicationRecord
-  has_many :users, through: :bookings, dependent: :destroy
+  has_many :users, through: :bookings
+  has_many :bookings, dependent: :destroy
   has_many_attached :photos
   belongs_to :owner, class_name: "User"
 
-  CATEGORY = ["💧 Aquatique 💧", "🪽 Volante 🪽", "🦄 Terrestre 🦄", "🕳️ Sous-terraine 🕳️"]
+  CATEGORY = ["Aquatique", "Volante", "Terrestre", "Sous-terraine"]
 
   validates :name, presence: true
   validates :description, presence: true
   validates :price_per_day, presence: true
   # validates :owner_id, presence: true
   validates :category, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+                  against: [:name, :category],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

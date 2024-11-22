@@ -20,4 +20,13 @@ class Owner::BookingsController < ApplicationController
     @booking.update_attribute(:status, "canceled")
     redirect_to owner_bookings_path, status: :see_other
   end
+
+  def cancel
+    # Récupére la reservation
+    @booking = Booking.find(params[:id])
+    # Modifie la valeur associée à status en "canceled"
+    @booking.update_attribute(:status, "canceled")
+    redirect_to owner_bookings_path, status: :see_other
+  end
+
 end

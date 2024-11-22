@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
     # Tente de sauvegarder et gère les résultats
     if @booking.save
-      redirect_to beast_path(@beast), notice: "Booking was successfully created."
+      redirect_to beast_path(@beast), notice: "Votre reservation à bien été prise en compte"
     else
       render "beasts/show", status: :unprocessable_entity, notice: "Choisissez vos dates de location !"
     end
@@ -42,6 +42,22 @@ class BookingsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def cancel
+    # Récupére la reservation
+    @booking = Booking.find(params[:id])
+    # Modifie la valeur associée à status en "canceled"
+    @booking.update_attribute(:status, "canceled")
+    redirect_to bookings_path, status: :see_other
+  end
+
+  def pay
+    # Récupére la reservation
+    @booking = Booking.find(params[:id])
+    # Modifie la valeur associée à status en "payed"
+    @booking.update_attribute(:status, "payed")
+    redirect_to bookings_path, status: :see_other
   end
 
   private
